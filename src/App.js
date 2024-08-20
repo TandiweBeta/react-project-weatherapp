@@ -10,7 +10,7 @@ export default function App() {
         <Weather defaultCity="Johannesburg" />
 
         <footer>
-          This project was coded by
+          This project was coded by {''}
           <a
             href="https://github.com/TandiweBeta"
             target="_blank"

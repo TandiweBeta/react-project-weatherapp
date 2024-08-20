@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Weather.css";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo"; 
 
 
 export default function Weather(props) {
@@ -38,8 +38,7 @@ export default function Weather(props) {
 
   function search(){
   const apiKey = "34e1e89cfad74d6608db83f1e99b96a3";
-  let defaultCity= "Johannesburg";
-  let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity},uk&APPID=${apiKey}&units=metric`;
+  let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
   }
 
@@ -54,7 +53,7 @@ export default function Weather(props) {
               placeholder="Enter a City..."
               className="form-control"
               autoFocus
-              onChange={changCity}
+              onChange={changeCity}
             />
           </div>
           <div className="col-3">
@@ -66,31 +65,12 @@ export default function Weather(props) {
           </div>
         </div>
       </form>
-
-      <h1>{weatherData.city}</h1>
-      <ul>
-        <li>
-          <FormattedDate date={weatherData.date}/>
-          </li>
-        <li className="text-capitalize">{weatherData.description}</li>
-      </ul>
-      <div className="row">
-        <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="mostly cloudy"
-          />
-          <span>10°C</span>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>Precipitation: 15%</li>
-            <li>Humidity: 72%</li>
-            <li>Wind: 20 km/h</li>
-          </ul>
-        </div>
-      </div>
+      <WeatherInfo data= {weatherData}/>
     </div>
   );
+
+}   else {
+  search();
+  return "Loading..."
 }
 }
