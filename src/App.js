@@ -18,7 +18,7 @@ export default function App() {
           >
             Tandiwe Beta
           </a>{" "}
-          and is open sourced on{" "}
+          and is available on{" "}
           <a
             href="https://github.com/TandiweBeta/react-project-weatherapp"
             target="_blank"
