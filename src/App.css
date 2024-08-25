@@ -1,7 +1,15 @@
-
+body{
+  background-image:
+  url( "./Weather-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .App{
+ background-color: white;
 max-width: 600px;
 margin: 30px auto;
+border-radius: 10px;
 }
 footer{
   font-size: 14px;
